@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Gradle : com.gd : manager-1.0-SNAPSHOT.war (exploded)">
-    <output-path>$PROJECT_DIR$/manager/build/libs/exploded/manager-1.0-SNAPSHOT.war</output-path>
+  <artifact type="exploded-war" name="Gradle : financial : manager.war (exploded)">
+    <output-path>$PROJECT_DIR$/manager/build/libs/exploded/manager.war</output-path>
     <properties id="gradle-properties">
       <options external-project-path="$PROJECT_DIR$">
         <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
@@ -8,9 +8,9 @@
     </properties>
     <root id="root">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/manager/build/libs/exploded/manager-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/manager/build/libs/exploded/manager.war/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="manager_main/web/Web Gradle : manager-1.0-SNAPSHOT.war" />
+      <element id="javaee-facet-resources" facet="manager_main/web/Web Gradle : manager.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="manager_main" />
@@ -20,6 +20,10 @@
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-data-jpa:1.5.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.5" />
+          <element id="archive" name="com.gd-entity-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="entity_main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/entity/out/production/resources" />
+          </element>
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:1.5.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.3.5.Final" />
@@ -71,6 +75,7 @@
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.15" />
           <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.11" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.29" />
         </element>
       </element>
     </root>
