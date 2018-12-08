@@ -1,4 +1,4 @@
-package com.gd.entity;
+package com.gd.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +10,7 @@ public class Product {
     private String id;//产品编号
     private String name;//产品名称
     /**
-     * @see com.gd.enums.ProductStatus
+     * @see com.gd.domain.enums.ProductStatus
      */
     private String status;//状态，AUDINTING：审核中，IN_SEll：销售中，LOCKED:暂停销售，FINISHED：已结束
     private BigDecimal thresholdAmount;//起投金额
@@ -21,7 +21,7 @@ public class Product {
     private Date createAt;//创建时间
     private Date updateAt;//更新时间
     private String createUser;//创建人
-    private String updateUsser;//更新者
+    private String updateUser;//更新者
 
     public String getId() {
         return id;
@@ -111,12 +111,12 @@ public class Product {
         this.createUser = createUser;
     }
 
-    public String getUpdateUsser() {
-        return updateUsser;
+    public String getUpdateUser() {
+        return updateUser;
     }
 
-    public void setUpdateUsser(String updateUsser) {
-        this.updateUsser = updateUsser;
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
     @Override
@@ -133,7 +133,7 @@ public class Product {
                 ", createAt=" + createAt +
                 ", updateAt=" + updateAt +
                 ", createUser='" + createUser + '\'' +
-                ", updateUsser='" + updateUsser + '\'' +
+                ", updateUser='" + updateUser + '\'' +
                 '}';
     }
 }

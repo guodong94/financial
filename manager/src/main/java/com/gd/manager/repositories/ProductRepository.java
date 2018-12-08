@@ -1,6 +1,6 @@
 package com.gd.manager.repositories;
 
-import com.gd.entity.Product;
+import com.gd.domain.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

@@ -1,7 +1,8 @@
 package com.gd.manager.service;
 
-import com.gd.entity.Product;
-import com.gd.enums.ProductStatus;
+import com.gd.domain.entity.Product;
+import com.gd.domain.enums.ProductStatus;
+import com.gd.manager.error.ErrorEnum;
 import com.gd.manager.repositories.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,14 +13,10 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
-import sun.java2d.pipe.SpanClipRenderer;
-import sun.plugin2.message.Message;
-import sun.rmi.runtime.Log;
 
 import javax.persistence.criteria.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +50,7 @@ public class ProductService {
      * @return
      */
     public Product findOne(String id){
-        Assert.notNull(id,"产品编码不能为空");
+        Assert.notNull(id, ErrorEnum.ID_NOT_NYLL.getCode());
         LOG.debug("查询单个产品id={}",id);
         Product product = productRepository.findOne(id);
         LOG.debug("单个产品,结果={}",product);
@@ -127,14 +124,14 @@ public class ProductService {
      * @param product
      */
     private void checkProduct(Product product) {
-        Assert.notNull(product.getId(), "编号不可为空");
+        Assert.notNull(product.getId(), ErrorEnum.ID_NOT_NYLL.getCode());
         //其他校验
         Assert.notNull(product.getName(),"产品名称不能为空");
         //Assert.notNull(product.getStatus(),"产品状态不能为空");
 
         //收益率要0-30以内
         Assert.isTrue(BigDecimal.ZERO.compareTo(product.getRewardRate())<0 && BigDecimal.valueOf(30).compareTo(product.getRewardRate()) >=0,"收益率范围错误（0-30）");
-        Assert.isTrue(BigDecimal.valueOf(product.getRewardRate().longValue()).compareTo(product.getRewardRate())==0,"投资步长需为整数");
+        Assert.isTrue(BigDecimal.valueOf(product.getStepAmount().longValue()).compareTo(product.getStepAmount())==0,"投资步长需为整数");
 
 
     }

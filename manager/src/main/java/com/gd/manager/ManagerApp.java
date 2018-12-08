@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 管理端启动类
  */
 @SpringBootApplication
-@EntityScan(basePackages = {"com.gd.entity"})
+@EntityScan(basePackages = {"com.gd.domain"})
 public class ManagerApp {
     public static void main(String[] args){
         SpringApplication.run(ManagerApp.class);

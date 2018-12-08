@@ -1,4 +1,4 @@
-package com.gd.entity;
+package com.gd.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,13 +18,13 @@ public class Order {
     private String chanUserId;//渠道用户编号
     private String productId;//产品编号
     /**
-     * @see com.gd.enums.OrderType
+     * @see com.gd.domain.enums.OrderType
      */
     private String orderType;//类型：APPLY，申购：REDEDN：赎回
     private BigDecimal amount;//金额
     private String outerOrderId;//外部订单编号
     /**
-     * @see com.gd.enums.OrderStatue
+     * @see com.gd.domain.enums.OrderStatue
      */
     private String orderStatue;//状态：INIT：初始化，PROCESS：处理中，SUCESS：成功，FAIL：失败
     private String memo;//备注

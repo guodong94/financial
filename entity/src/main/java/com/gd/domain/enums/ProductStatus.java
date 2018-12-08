@@ -1,4 +1,4 @@
-package com.gd.enums;
+package com.gd.domain.enums;
 
 /**
  * 产品状态

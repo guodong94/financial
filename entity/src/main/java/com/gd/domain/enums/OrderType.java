@@ -1,4 +1,4 @@
-package com.gd.enums;
+package com.gd.domain.enums;
 
 /**
  * 订单类型

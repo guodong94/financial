@@ -1,11 +1,10 @@
 package com.gd.manager.controller;
 
-import com.gd.entity.Product;
+import com.gd.domain.entity.Product;
 import com.gd.manager.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -27,21 +26,21 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PatchMapping(value = "/addProduct")
+    @PostMapping(value = "/product")
     public Product addProduct(@RequestBody Product product){
         LOG.info("创建产品--请求参数：{}"+product);
         Product result = productService.addProduct(product);
         LOG.info("返回值结果：{}"+result);
         return result;
     }
-    @GetMapping(value = "/Product/{id}")
+    @GetMapping(value = "/product/{id}")
     public Product findOne(@PathVariable String id){
         LOG.info("产品编码，id={}",id);
         Product product = productService.findOne(id);
         LOG.info("单个产品结果={}",product);
         return product;
     }
-    @GetMapping(value = "")
+    @GetMapping(value = "/products")
     public Page<Product> query(String ids, BigDecimal minRewardRate, BigDecimal maxRewardRate,
                                String status,@RequestParam(defaultValue = "0") int pageNum,@RequestParam(defaultValue = "10")int pageSize){
         LOG.info("查询产品参数：ids={}，minRewardRate={}，maxRewardRate={}，statusList={}，pageNum={},pageSize={}",ids,minRewardRate,maxRewardRate,status,pageNum,pageSize);
