@@ -1,5 +1,7 @@
 package com.gd.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
@@ -18,7 +20,9 @@ public class Product {
     private Integer lockTerm;//锁定期
     private BigDecimal rewardRate;//收益率，因为要与金额相乘，所以类型使用BigDecimal
     private String memo;//备注
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createAt;//创建时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateAt;//更新时间
     private String createUser;//创建人
     private String updateUser;//更新者
