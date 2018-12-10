@@ -1,5 +1,6 @@
 package com.gd.swagger;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  * Swagger 配置信息
  */
 @Component
+@ConfigurationProperties(prefix = "swagger")
 public class SwaggerInfo {
     private String groupName = "controller";
 

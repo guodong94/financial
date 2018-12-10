@@ -19,8 +19,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EntityScan(basePackages = {"com.gd.domain"})
 //@Import(SwaggerConfigration.class)
-//@EnableMySwagger
-@EnableSwagger2
+@EnableMySwagger
+//@EnableSwagger2
 public class ManagerApp {
     public static void main(String[] args){
         SpringApplication.run(ManagerApp.class);

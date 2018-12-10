@@ -1,6 +1,8 @@
 package com.gd.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.gd.domain.enums.ProductStatus;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ public class Product {
     /**
      * @see com.gd.domain.enums.ProductStatus
      */
+    @ApiModelProperty(value = "状态",dataType = "com.gd.domain.enums.ProductStatus")
     private String status;//状态，AUDINTING：审核中，IN_SEll：销售中，LOCKED:暂停销售，FINISHED：已结束
     private BigDecimal thresholdAmount;//起投金额
     private BigDecimal stepAmount;//投资步长

@@ -1,5 +1,7 @@
 package com.gd.domain.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,12 +22,14 @@ public class Order {
     /**
      * @see com.gd.domain.enums.OrderType
      */
+    @ApiModelProperty(value = "类型",dataType = "com.gd.domain.enums.OrderType")
     private String orderType;//类型：APPLY，申购：REDEDN：赎回
     private BigDecimal amount;//金额
     private String outerOrderId;//外部订单编号
     /**
      * @see com.gd.domain.enums.OrderStatue
      */
+    @ApiModelProperty(value = "订单状态",dataType = "com.gd.domain.enums.OrderStatue")
     private String orderStatue;//状态：INIT：初始化，PROCESS：处理中，SUCESS：成功，FAIL：失败
     private String memo;//备注
     private Date createAt;//创建时间
