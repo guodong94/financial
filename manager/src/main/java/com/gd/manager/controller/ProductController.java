@@ -25,12 +25,13 @@ import java.util.List;
  */
 @RestController
 @Api(value = "管理端产品接口",description = "管理端产品接口")
+@RequestMapping("/products")
 public class ProductController {
     private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
     @Autowired
     private ProductService productService;
 
-    @PostMapping(value = "/product")
+    @PostMapping(value = "")
     @ApiOperation(value = "创建产品")
     public Product addProduct(@RequestBody Product product){
         LOG.info("创建产品--请求参数：{}"+product);
@@ -38,7 +39,7 @@ public class ProductController {
         LOG.info("返回值结果：{}"+result);
         return result;
     }
-    @GetMapping(value = "/product/{id}")
+    @GetMapping(value = "/{id}")
     @ApiOperation(value = "根据id查询产品")
     public Product findOne(@PathVariable String id){
         LOG.info("产品编码，id={}",id);
@@ -46,7 +47,7 @@ public class ProductController {
         LOG.info("单个产品结果={}",product);
         return product;
     }
-    @GetMapping(value = "/products")
+    @GetMapping(value = "")
     @ApiOperation(value = "自定义分页查询产品")
     public Page<Product> query(String ids, BigDecimal minRewardRate, BigDecimal maxRewardRate,
                                String status,@RequestParam(defaultValue = "0") int pageNum,@RequestParam(defaultValue = "10")int pageSize){

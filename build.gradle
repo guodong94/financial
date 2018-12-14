@@ -19,5 +19,6 @@ subprojects {
         compile libs.common
         testCompile libs.test
     }
+    compileJava.dependsOn(processResources)
     [compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
 }
