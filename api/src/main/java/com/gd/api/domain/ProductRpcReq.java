@@ -2,9 +2,12 @@ package com.gd.api.domain;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
+import java.util.Dictionary;
 import java.util.List;
 
 /**
@@ -13,13 +16,13 @@ import java.util.List;
  * @date 2018/12/15 0:00
  * 产品相关rpc参数
  */
+
 public class ProductRpcReq {
 
     private List<String> ids;
     private BigDecimal minRewardRate;
     private BigDecimal maxRewardRate;
     private List<String> status;
-    private Pageable pageable;
 
     public List<String> getIds() {
         return ids;
@@ -53,13 +56,6 @@ public class ProductRpcReq {
         this.status = status;
     }
 
-    public Pageable getPageable() {
-        return pageable;
-    }
-
-    public void setPageable(Pageable pageable) {
-        this.pageable = pageable;
-    }
 
     @Override
     public String toString() {

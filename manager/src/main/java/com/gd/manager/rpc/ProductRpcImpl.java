@@ -1,17 +1,20 @@
 package com.gd.manager.rpc;
 
-import com.gd.api.ProductRPC;
+import com.gd.api.ProductRpc;
 import com.gd.api.domain.ProductRpcReq;
 import com.gd.domain.entity.Product;
 import com.gd.manager.service.ProductService;
-import com.googlecode.jsonrpc4j.JsonRpcService;
 import com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @auther guodong
@@ -21,18 +24,19 @@ import org.springframework.stereotype.Service;
  */
 @AutoJsonRpcServiceImpl
 @Service
-public class ProductRpcImpl implements ProductRPC{
+public class ProductRpcImpl implements ProductRpc {
     private static Logger logger = LoggerFactory.getLogger(ProductRpcImpl.class);
 
     @Autowired
     private ProductService productService;
 
     @Override
-    public Page<Product> query(ProductRpcReq req) {
+    public List<Product> query(ProductRpcReq req) {
         logger.info("查询多个产品，请求{}",req);
-        Page<Product> query = productService.query(req.getIds(), req.getMinRewardRate(), req.getMaxRewardRate(), req.getStatus(), req.getPageable());
+        Pageable pageable = new PageRequest(0,1000,Sort.Direction.DESC,"rewardRate");
+        Page<Product> query = productService.query(req.getIds(), req.getMinRewardRate(), req.getMaxRewardRate(), req.getStatus(), pageable);
         logger.info("查询多个产品，结果{}",query);
-        return query;
+        return query.getContent();
     }
 
     @Override
