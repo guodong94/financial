@@ -7,10 +7,10 @@ import com.gd.domain.enums.ProductStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -39,7 +39,8 @@ public class ProductRpcService {
         ProductRpcReq req = new ProductRpcReq();
         List<String> status = new ArrayList<>();
         status.add(ProductStatus.IN_SELL.name());
-        Pageable pageable = new PageRequest(0,1000, Sort.Direction.DESC,"rewardRate");
+        //Pageable pageable = new PageRequest(0,1000, Sort.Direction.DESC,"rewardRate");
+
         req.setStatus(status);
 
         logger.info("rpc查询全部产品：{}",req);

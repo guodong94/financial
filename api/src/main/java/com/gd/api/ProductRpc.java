@@ -3,6 +3,7 @@ package com.gd.api;
 import com.gd.api.domain.ProductRpcReq;
 import com.gd.domain.entity.Product;
 import com.googlecode.jsonrpc4j.JsonRpcService;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * 产品相关的Rpc服务
  */
 @JsonRpcService("rpc/products")
+@Component
 public interface ProductRpc {
     /**
      * 查询多个产品

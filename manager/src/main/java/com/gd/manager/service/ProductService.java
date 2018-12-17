@@ -72,7 +72,7 @@ public class ProductService {
         Specification<Product> specification = new Specification<Product>() {
             @Override
             public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                Expression<String> idCol = root.get("idList");
+                Expression<String> idCol = root.get("id");
                 Expression<BigDecimal> rewardRateCol = root.get("rewardRate");
                 Expression<BigDecimal> statusCol = root.get("status");
                 //定义断言
