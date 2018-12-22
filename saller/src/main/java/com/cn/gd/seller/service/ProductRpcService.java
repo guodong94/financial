@@ -50,8 +50,15 @@ public class ProductRpcService {
         return result;
     }
 
+    public Product findOne(String id){
+        logger.info("rpc查询单个产品：{}",id);
+        Product product = productRpc.findOne(id);
+        logger.info("查询单个产品结果：{}",product);
+        return product;
+    }
+
     @PostConstruct
     public void testFindAll(){
-        findAll();
+        findOne("001");
     }
 }
